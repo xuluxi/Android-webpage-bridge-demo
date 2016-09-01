@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+    <title>Web</title>
+    </head>
+    <body>
+    <button id="msg_get">get</button>
+    <button id="msg_push">push</button>
+    <div>
+      <button id="reload">reload page</button>
+    </div>
+    <script>
+      var getBtn = document.getElementById("msg_get");
+      var pushBtn = document.getElementById("msg_push");
+      
+      pushBtn.onclick = function(){
+        window.Android.messageHandler("message from web page!");
+      }
+      getBtn.onclick = function(){
+        var msg = window.Android.getMsg();
+        getBtn.innerHTML = msg;
+      };
+
+      document.getElementById("reload").onclick = function(){
+        document.location.href = document.location.href;
+      }
+    </script>
+    </body>
+</html>
